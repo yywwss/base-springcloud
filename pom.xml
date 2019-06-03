@@ -8,6 +8,7 @@
         <module>common-api</module>
         <module>base-eureka-server</module>
         <module>base-stock</module>
+        <module>base-stock-impl</module>
         <module>base-order</module>
     </modules>
 

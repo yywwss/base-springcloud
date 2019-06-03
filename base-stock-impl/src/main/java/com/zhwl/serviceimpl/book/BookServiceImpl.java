@@ -1,13 +1,17 @@
-package com.zhwl.service.book.impl;
+package com.zhwl.serviceimpl.book;
 
-import com.zhwl.exception.BaseException;
-import com.zhwl.service.book.BookService;
 import com.zhwl.bean.Book;
+import com.zhwl.exception.BaseException;
+import com.zhwl.service.BookService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.List;
 
+@RestController
+@RequestMapping("book")
 @Service
 public class BookServiceImpl implements BookService {
 

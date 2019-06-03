@@ -1,6 +1,6 @@
 package com.zhwl.controller;
 
-import com.zhwl.feignservice.BookFeignService;
+import com.zhwl.feign.BookServiceFeign;
 import com.zhwl.result.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderController {
 
     @Autowired
-    private BookFeignService bookFeignService;
+    private BookServiceFeign bookServiceFeign;
 
 
     @GetMapping("getAllBook")
     public ResultVo getAllBook(){
-        return bookFeignService.getAll();
+        return ResultVo.ok(bookServiceFeign.getAll());
     }
 }
