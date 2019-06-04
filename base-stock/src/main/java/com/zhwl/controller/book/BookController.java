@@ -19,7 +19,10 @@ public class BookController {
     //新增
     @PostMapping
     public ResultVo add(@RequestBody Book book){
-        return ResultVo.ok(bookServiceFeign.add(book));
+        bookServiceFeign.add(book);
+        if (true)
+            throw new BaseException(0,"出现异常了");
+        return ResultVo.ok();
         //return ResultVo.ok(bookService.add(book));
     }
 

@@ -2,8 +2,12 @@ package com.zhwl.serviceimpl.book;
 
 import com.zhwl.bean.Book;
 import com.zhwl.exception.BaseException;
+import com.zhwl.mapper.book.BookMapper;
 import com.zhwl.service.BookService;
+import com.zhwl.util.UuidUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,11 +17,16 @@ import java.util.List;
 @RestController
 @RequestMapping("book")
 @Service
+@Transactional
 public class BookServiceImpl implements BookService {
+
+    @Autowired
+    private BookMapper bookMapper;
 
     @Override
     public Integer add(Book book) {
-        System.out.println(book);
+        book.setId(UuidUtil.get32UUID());
+        bookMapper.insert(book);
         return 1;
     }
 
@@ -35,10 +44,11 @@ public class BookServiceImpl implements BookService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }*/
-        return Arrays.asList(
+        return bookMapper.getAll();
+        /*return Arrays.asList(
                 new Book("1","java",25.00,10),
                 new Book("2","python",35.00,20),
-                new Book("3","Linux",45.00,30));
+                new Book("3","Linux",45.00,30));*/
     }
 
     @Override
