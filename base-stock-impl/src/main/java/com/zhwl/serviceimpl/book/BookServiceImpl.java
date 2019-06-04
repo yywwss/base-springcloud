@@ -25,6 +25,16 @@ public class BookServiceImpl implements BookService {
     public List<Book> getAll() {
         /*if (true)
             throw new BaseException(0,"出现异常了");*/
+
+        /* 在消费方配置
+        *#请求处理的超时时间 ribbon.ReadTimeout=1500
+        #请求连接的超时时间 ribbon.ConnectTimeout=2000
+        * */
+        /*try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
         return Arrays.asList(
                 new Book("1","java",25.00,10),
                 new Book("2","python",35.00,20),

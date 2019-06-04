@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="base-eureka-server" />
+        <module name="base-order" />
+        <module name="base-stock" />
+        <module name="base-stock-impl" />
+        <module name="base-zuul" />
+        <module name="common-api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="base-eureka-server" target="1.8" />
+      <module name="base-order" target="1.8" />
+      <module name="base-springcloud" target="1.8" />
+      <module name="base-stock" target="1.8" />
+      <module name="base-stock-impl" target="1.8" />
+      <module name="base-zuul" target="1.8" />
+      <module name="common-api" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

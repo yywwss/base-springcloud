@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FUSUsageTrigger">
+    <session id="1042436613">
+      <usages-collector id="statistics.spring.boot.run.usages">
+        <counts>
+          <entry key="LiveBeansNavigationHandler.fromCode" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/base-stock/pom.xml" />
+        <option value="$PROJECT_DIR$/base-order/pom.xml" />
+        <option value="$PROJECT_DIR$/base-stock-impl/pom.xml" />
+        <option value="$PROJECT_DIR$/base-zuul/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
