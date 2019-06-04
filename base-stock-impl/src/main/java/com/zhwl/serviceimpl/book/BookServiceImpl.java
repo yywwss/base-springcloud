@@ -40,4 +40,12 @@ public class BookServiceImpl implements BookService {
                 new Book("2","python",35.00,20),
                 new Book("3","Linux",45.00,30));
     }
+
+    @Override
+    public List<Book> getByName(String name) {
+        return Arrays.asList(
+                new Book("1",name,25.00,10),
+                new Book("2",name,35.00,20),
+                new Book("3",name,45.00,30));
+    }
 }
