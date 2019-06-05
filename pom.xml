@@ -32,7 +32,9 @@
         <java.version>1.8</java.version>
         <common-api.version>1.0-SNAPSHOT</common-api.version>
         <jackson.version>2.9.8</jackson.version>
+        <fastjson.version>1.2.58</fastjson.version>
         <druid.version>1.1.17</druid.version>
+        <springfox-spring-web.version>2.9.2</springfox-spring-web.version>
         <mybatis-plus-boot-starter.version>3.1.1</mybatis-plus-boot-starter.version>
         <!--指定SpringCloud的版本-->
         <spring-cloud.version>Greenwich.RC2</spring-cloud.version>
@@ -60,6 +62,13 @@
                 <version>${jackson.version}</version>
             </dependency>
 
+            <!--fastjson-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
             <!--druid-->
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -73,6 +82,13 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+
+            <!-- springfox-spring-web -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-spring-web</artifactId>
+                <version>${springfox-spring-web.version}</version>
             </dependency>
 
 

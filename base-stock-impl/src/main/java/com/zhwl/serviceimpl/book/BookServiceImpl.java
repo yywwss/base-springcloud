@@ -25,6 +25,8 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Integer add(Book book) {
+        if (true)
+            throw new BaseException(0,"出现异常了");
         book.setId(UuidUtil.get32UUID());
         bookMapper.insert(book);
         return 1;
@@ -32,8 +34,8 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> getAll() {
-        /*if (true)
-            throw new BaseException(0,"出现异常了");*/
+        if (true)
+            throw new BaseException(10,"出现异常了");
 
         /* 在消费方配置
         *#请求处理的超时时间 ribbon.ReadTimeout=1500
@@ -53,6 +55,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> getByName(String name) {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return Arrays.asList(
                 new Book("1",name,25.00,10),
                 new Book("2",name,35.00,20),

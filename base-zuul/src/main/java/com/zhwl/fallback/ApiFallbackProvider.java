@@ -27,8 +27,6 @@ public class ApiFallbackProvider implements FallbackProvider {
         String message = "";
         if (cause instanceof HystrixTimeoutException) {//服务调用超时
             message = "服务器繁忙，请稍后重试。";
-        }else if (cause instanceof RuntimeException) {
-            message = cause.getMessage();
         }else {//当服务不可用时
             message = "服务器内部出错，请联系管理员。";
         }

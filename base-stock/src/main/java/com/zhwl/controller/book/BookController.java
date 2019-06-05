@@ -19,24 +19,26 @@ public class BookController {
     //新增
     @PostMapping
     public ResultVo add(@RequestBody Book book){
-        bookServiceFeign.add(book);
-        if (true)
-            throw new BaseException(0,"出现异常了");
-        return ResultVo.ok();
+        try {
+            return ResultVo.ok(bookServiceFeign.add(book));
+        }catch (BaseException e){
+            e.printStackTrace();
+            return ResultVo.fail(e.getMessage());
+        }
+
         //return ResultVo.ok(bookService.add(book));
     }
 
     //查询
     @GetMapping("getAll")
     public ResultVo getAll(){
-        return ResultVo.ok(bookServiceFeign.getAll());
-        /*try {
+        try {
             return ResultVo.ok(bookServiceFeign.getAll());
             //return ResultVo.ok(bookService.getAll());
         }catch (BaseException e){
             e.printStackTrace();
             return ResultVo.fail(e.getMessage());
-        }*/
+        }
     }
 
     @GetMapping("getByName")

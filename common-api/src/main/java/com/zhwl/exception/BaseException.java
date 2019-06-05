@@ -10,4 +10,8 @@ public class BaseException extends RuntimeException {
         super(message);
         this.code = code;
     }
+
+    public BaseException(String message) {
+        super(message);
+    }
 }
