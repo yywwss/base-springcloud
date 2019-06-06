@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="base-eureka-server" />
         <module name="base-order" />
+        <module name="base-order-impl" />
         <module name="base-stock" />
         <module name="base-stock-impl" />
         <module name="base-zuul" />
@@ -17,6 +18,7 @@
     <bytecodeTargetLevel>
       <module name="base-eureka-server" target="1.8" />
       <module name="base-order" target="1.8" />
+      <module name="base-order-impl" target="1.8" />
       <module name="base-springcloud" target="1.8" />
       <module name="base-stock" target="1.8" />
       <module name="base-stock-impl" target="1.8" />
