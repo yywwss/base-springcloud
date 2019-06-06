@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhwl.mapper.order.OrderMapper">
+
+    <!--表名 -->
+    <sql id="tableName">
+        t_order
+    </sql>
+
+    <sql id="Field">
+        book_id,
+        count,
+        id
+    </sql>
+
+    <resultMap id="BaseResultMap" type="Order">
+        <id column="id" property="id"/>
+        <result column="book_id" property="bookId"/>
+        <result column="count" property="count"/>
+        <association property="book" javaType="Book">
+            <id column="b_id" property="id"/>
+            <result column="name" property="name" />
+            <result column="price" property="price" />
+            <result column="stock" property="stock" />
+        </association>
+    </resultMap>
+
+
+    <select id="getAll" resultMap="BaseResultMap">
+        select torder.id,torder.book_id,torder.count,
+        tbook.id as b_id,tbook.name,tbook.price,tbook.stock
+        from <include refid="tableName"></include> as torder
+        left join t_book as tbook on torder.book_id = tbook.id
+    </select>
+
+</mapper>

@@ -8,6 +8,7 @@ import com.zhwl.util.UuidUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,18 +26,22 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Integer add(Book book) {
-        if (true)
-            throw new BaseException(0,"出现异常了");
+       /* if (true)
+            throw new BaseException(0,"出现异常了");*/
         book.setId(UuidUtil.get32UUID());
         bookMapper.insert(book);
         return 1;
     }
 
     @Override
-    public List<Book> getAll() {
-        if (true)
-            throw new BaseException(10,"出现异常了");
+    public Integer update(Book book) {
+        if (StringUtils.isEmpty(book.getId()))
+            throw new BaseException(0,"参数异常");
+        return bookMapper.updateById(book);
+    }
 
+    @Override
+    public List<Book> getAll() {
         /* 在消费方配置
         *#请求处理的超时时间 ribbon.ReadTimeout=1500
         #请求连接的超时时间 ribbon.ConnectTimeout=2000
@@ -54,15 +59,27 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public Book getById(String id) {
+        return bookMapper.selectById(id);
+    }
+
+    @Override
     public List<Book> getByName(String name) {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return Arrays.asList(
                 new Book("1",name,25.00,10),
                 new Book("2",name,35.00,20),
                 new Book("3",name,45.00,30));
+    }
+
+    //减少库存
+    @Override
+    public void reduceBook(String bookId, Integer count) {
+        Book book = this.getById(bookId);
+        int stock = book.getStock() - count;
+        if ( stock > 0)
+            book.setStock(stock);
+        else
+            throw new BaseException("库存不足！");
+        this.update(book);
     }
 }

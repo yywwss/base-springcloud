@@ -1,22 +1,37 @@
 package com.zhwl.controller;
 
-import com.zhwl.feign.BookServiceFeign;
+import com.zhwl.bean.Order;
+import com.zhwl.exception.BaseException;
 import com.zhwl.result.ResultVo;
+import com.zhwl.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("order")
 public class OrderController {
 
     @Autowired
-    private BookServiceFeign bookServiceFeign;
+    private OrderService orderService;
 
 
-    @GetMapping("getAllBook")
-    public ResultVo getAllBook(){
-        return ResultVo.ok(bookServiceFeign.getAll());
+    @GetMapping("getAll")
+    public ResultVo getAll(){
+        try {
+            return ResultVo.ok(orderService.getAll());
+        }catch (BaseException e){
+            e.printStackTrace();
+            return ResultVo.fail(e.getMessage());
+        }
+    }
+
+    @PostMapping
+    public ResultVo add(@RequestBody Order order){
+        try {
+            return ResultVo.ok(orderService.add(order));
+        }catch (BaseException e){
+            e.printStackTrace();
+            return ResultVo.fail(e.getMessage());
+        }
     }
 }

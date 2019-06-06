@@ -25,8 +25,17 @@ public class BookController {
             e.printStackTrace();
             return ResultVo.fail(e.getMessage());
         }
+    }
 
-        //return ResultVo.ok(bookService.add(book));
+    //修改
+    @PutMapping
+    public ResultVo update(@RequestBody Book book){
+        try {
+            return ResultVo.ok(bookServiceFeign.update(book));
+        }catch (BaseException e){
+            e.printStackTrace();
+            return ResultVo.fail(e.getMessage());
+        }
     }
 
     //查询

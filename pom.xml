@@ -11,6 +11,7 @@
         <module>base-stock</module>
         <module>base-stock-impl</module>
         <module>base-order</module>
+        <module>base-order-impl</module>
     </modules>
 
     <!--继承Spring Boot 2.1.5.RELEASE，省去一些版本的问题
