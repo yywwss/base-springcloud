@@ -54,6 +54,12 @@
             <artifactId>springfox-spring-web</artifactId>
         </dependency>
 
+
+        <dependency>
+            <groupId>com.codingapi.txlcn</groupId>
+            <artifactId>txlcn-txmsg-netty</artifactId>
+        </dependency>
+
     </dependencies>
 
 

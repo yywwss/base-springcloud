@@ -6,6 +6,7 @@ import com.zhwl.exception.BaseException;
 import com.zhwl.feign.BookServiceFeign;
 import com.zhwl.mapper.order.OrderMapper;
 import com.zhwl.service.OrderService;
+import com.zhwl.txlcn.tc.annotation.LcnTransaction;
 import com.zhwl.util.UuidUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,17 +27,17 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private BookServiceFeign bookServiceFeign;
 
+    @LcnTransaction
     @Override
     public Integer add(Order order) {
 
         //提交订单
-        order.setId(UuidUtil.get32UUID());
-        orderMapper.insert(order);
+        orderMapper.insert(order.setId(UuidUtil.get32UUID()));
 
         //减少对应库存
         bookServiceFeign.reduceBook(order.getBookId(),order.getCount());
-        /*if (true)
-            throw new BaseException("未知错误");*/
+        if (order.getCount()>10)
+            throw new BaseException("未知错误");
 
         return 1;
     }

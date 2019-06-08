@@ -4,6 +4,9 @@ import com.zhwl.bean.Book;
 import com.zhwl.exception.BaseException;
 import com.zhwl.mapper.book.BookMapper;
 import com.zhwl.service.BookService;
+import com.zhwl.txlcn.tc.annotation.DTXPropagation;
+import com.zhwl.txlcn.tc.annotation.LcnTransaction;
+import com.zhwl.txlcn.tc.annotation.TxcTransaction;
 import com.zhwl.util.UuidUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -72,6 +75,8 @@ public class BookServiceImpl implements BookService {
     }
 
     //减少库存
+    @LcnTransaction
+    //@TxcTransaction(propagation = DTXPropagation.SUPPORTS)
     @Override
     public void reduceBook(String bookId, Integer count) {
         Book book = this.getById(bookId);
