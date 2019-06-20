@@ -31,6 +31,7 @@ public class MyControllerAdvice {
     @ResponseBody
     @ExceptionHandler(value = BaseException.class)
     public ResultVo myErrorHandler(BaseException e) {
+        System.out.println(e.getMessage());
         e.printStackTrace();
         return ResultVo.fail(e.getMessage());
     }
