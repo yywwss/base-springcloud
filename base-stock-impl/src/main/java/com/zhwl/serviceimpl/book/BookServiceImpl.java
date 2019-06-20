@@ -59,10 +59,6 @@ public class BookServiceImpl implements BookService {
             e.printStackTrace();
         }*/
         return bookMapper.getAll();
-        /*return Arrays.asList(
-                new Book("1","java",25.00,10),
-                new Book("2","python",35.00,20),
-                new Book("3","Linux",45.00,30));*/
     }
 
     @Override

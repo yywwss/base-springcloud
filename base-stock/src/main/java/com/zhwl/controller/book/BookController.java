@@ -19,44 +19,23 @@ public class BookController {
     //新增
     @PostMapping
     public ResultVo add(@RequestBody Book book){
-        try {
-            return ResultVo.ok(bookServiceFeign.add(book));
-        }catch (BaseException e){
-            e.printStackTrace();
-            return ResultVo.fail(e.getMessage());
-        }
+        return ResultVo.ok(bookServiceFeign.add(book));
     }
 
     //修改
     @PutMapping
     public ResultVo update(@RequestBody Book book){
-        try {
-            return ResultVo.ok(bookServiceFeign.update(book));
-        }catch (BaseException e){
-            e.printStackTrace();
-            return ResultVo.fail(e.getMessage());
-        }
+        return ResultVo.ok(bookServiceFeign.update(book));
     }
 
     //查询
     @GetMapping("getAll")
     public ResultVo getAll(){
-        try {
-            return ResultVo.ok(bookServiceFeign.getAll());
-            //return ResultVo.ok(bookService.getAll());
-        }catch (BaseException e){
-            e.printStackTrace();
-            return ResultVo.fail(e.getMessage());
-        }
+        return ResultVo.ok(bookServiceFeign.getAll());
     }
 
     @GetMapping("getByName")
     public ResultVo getByName(@RequestParam(value = "name") String name){
-        try {
-            return ResultVo.ok(bookServiceFeign.getByName(name));
-        }catch (BaseException e){
-            e.printStackTrace();
-            return ResultVo.fail(e.getMessage());
-        }
+        return ResultVo.ok(bookServiceFeign.getByName(name));
     }
 }
