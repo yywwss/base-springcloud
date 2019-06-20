@@ -1,6 +1,7 @@
 package com.zhwl.service;
 
 import com.zhwl.bean.Book;
+import com.zhwl.property.JWTProperties;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,4 +26,10 @@ public interface BookService {
 
     @PutMapping(value="reduceBook")
     void reduceBook(@RequestParam(value = "bookId") String bookId, @RequestParam(value = "count")Integer count);
+
+
+    //@GetMapping(name = "getJWT") //不可以访问
+    @GetMapping(value = "getJWT") //可以访问
+    //@RequestMapping(value="getJWT",method = RequestMethod.GET)  //可以访问
+    JWTProperties getJWT();
 }

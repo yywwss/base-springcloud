@@ -28,4 +28,12 @@
         select * from <include refid="tableName"></include>
     </select>
 
+    <update id="reduceBook">
+        update
+        <include refid="tableName"></include>
+        set stock = stock - #{count}
+        WHERE
+        id=#{id} and stock - #{count} >= 0
+    </update>
+
 </mapper>

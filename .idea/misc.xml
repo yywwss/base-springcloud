@@ -17,6 +17,7 @@
         <option value="$PROJECT_DIR$/base-order/pom.xml" />
         <option value="$PROJECT_DIR$/base-stock-impl/pom.xml" />
         <option value="$PROJECT_DIR$/base-zuul/pom.xml" />
+        <option value="$PROJECT_DIR$/base-txlcn-tx/pom.xml" />
       </list>
     </option>
   </component>

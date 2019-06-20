@@ -8,6 +8,8 @@
       <module fileurl="file://$PROJECT_DIR$/base-springcloud.iml" filepath="$PROJECT_DIR$/base-springcloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/base-stock/base-stock.iml" filepath="$PROJECT_DIR$/base-stock/base-stock.iml" />
       <module fileurl="file://$PROJECT_DIR$/base-stock-impl/base-stock-impl.iml" filepath="$PROJECT_DIR$/base-stock-impl/base-stock-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-tx-manage/base-tx-manage.iml" filepath="$PROJECT_DIR$/base-tx-manage/base-tx-manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-txlcn-tc/base-txlcn-tc.iml" filepath="$PROJECT_DIR$/base-txlcn-tc/base-txlcn-tc.iml" />
       <module fileurl="file://$PROJECT_DIR$/base-zuul/base-zuul.iml" filepath="$PROJECT_DIR$/base-zuul/base-zuul.iml" />
       <module fileurl="file://$PROJECT_DIR$/common-api/common-api.iml" filepath="$PROJECT_DIR$/common-api/common-api.iml" />
     </modules>

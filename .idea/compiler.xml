@@ -11,6 +11,8 @@
         <module name="base-order-impl" />
         <module name="base-stock" />
         <module name="base-stock-impl" />
+        <module name="base-tx-manage" />
+        <module name="base-txlcn-tc" />
         <module name="base-zuul" />
         <module name="common-api" />
       </profile>
@@ -22,6 +24,8 @@
       <module name="base-springcloud" target="1.8" />
       <module name="base-stock" target="1.8" />
       <module name="base-stock-impl" target="1.8" />
+      <module name="base-tx-manage" target="1.8" />
+      <module name="base-txlcn-tc" target="1.8" />
       <module name="base-zuul" target="1.8" />
       <module name="common-api" target="1.8" />
     </bytecodeTargetLevel>

@@ -3,6 +3,7 @@ package com.zhwl.serviceimpl.book;
 import com.zhwl.bean.Book;
 import com.zhwl.exception.BaseException;
 import com.zhwl.mapper.book.BookMapper;
+import com.zhwl.property.JWTProperties;
 import com.zhwl.service.BookService;
 import com.zhwl.txlcn.tc.annotation.DTXPropagation;
 import com.zhwl.txlcn.tc.annotation.LcnTransaction;
@@ -26,6 +27,9 @@ public class BookServiceImpl implements BookService {
 
     @Autowired
     private BookMapper bookMapper;
+
+    @Autowired
+    private JWTProperties jWTProperties;
 
     @Override
     public Integer add(Book book) {
@@ -79,12 +83,23 @@ public class BookServiceImpl implements BookService {
     //@TxcTransaction(propagation = DTXPropagation.SUPPORTS)
     @Override
     public void reduceBook(String bookId, Integer count) {
-        Book book = this.getById(bookId);
+
+        if(bookMapper.reduceBook(bookId,count) > 0 )
+            System.out.println("书籍"+bookId+"减少了"+count);
+        else
+            throw new BaseException(0,"书籍"+bookId+"库存不足！");
+
+        /*Book book = this.getById(bookId);
         int stock = book.getStock() - count;
         if ( stock > 0)
             book.setStock(stock);
         else
             throw new BaseException("库存不足！");
-        this.update(book);
+        this.update(book);*/
+    }
+
+    @Override
+    public JWTProperties getJWT() {
+        return jWTProperties;
     }
 }
