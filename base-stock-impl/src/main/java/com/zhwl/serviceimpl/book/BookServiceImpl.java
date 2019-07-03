@@ -5,11 +5,12 @@ import com.zhwl.exception.BaseException;
 import com.zhwl.mapper.book.BookMapper;
 import com.zhwl.property.JWTProperties;
 import com.zhwl.service.BookService;
-import com.zhwl.txlcn.tc.annotation.DTXPropagation;
 import com.zhwl.txlcn.tc.annotation.LcnTransaction;
-import com.zhwl.txlcn.tc.annotation.TxcTransaction;
 import com.zhwl.util.UuidUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -24,6 +25,9 @@ import java.util.List;
 @Service
 @Transactional
 public class BookServiceImpl implements BookService {
+
+    @Autowired
+    private Logger logger;
 
     @Autowired
     private BookMapper bookMapper;
@@ -81,9 +85,11 @@ public class BookServiceImpl implements BookService {
     public void reduceBook(String bookId, Integer count) {
 
         if(bookMapper.reduceBook(bookId,count) > 0 )
-            System.out.println("书籍"+bookId+"减少了"+count);
-        else
+            logger.info("书籍"+bookId+"减少了"+count);
+        else{
+            logger.error("书籍"+bookId+"库存不足！");
             throw new BaseException(0,"书籍"+bookId+"库存不足！");
+        }
 
         /*Book book = this.getById(bookId);
         int stock = book.getStock() - count;

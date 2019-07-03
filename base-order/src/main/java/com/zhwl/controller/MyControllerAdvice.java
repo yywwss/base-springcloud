@@ -1,10 +1,7 @@
 package com.zhwl.controller;
 
-import com.netflix.client.ClientException;
 import com.zhwl.exception.BaseException;
 import com.zhwl.result.ResultVo;
-import feign.Client;
-import feign.codec.DecodeException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

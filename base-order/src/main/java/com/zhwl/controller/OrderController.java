@@ -17,21 +17,11 @@ public class OrderController {
 
     @GetMapping("getAll")
     public ResultVo getAll(){
-        try {
-            return ResultVo.ok(orderService.getAll());
-        }catch (BaseException e){
-            e.printStackTrace();
-            return ResultVo.fail(e.getMessage());
-        }
+        return ResultVo.ok(orderService.getAll());
     }
 
     @PostMapping
     public ResultVo add(@RequestBody Order order){
-        try {
-            return ResultVo.ok(orderService.add(order));
-        }catch (BaseException e){
-            e.printStackTrace();
-            return ResultVo.fail(e.getMessage());
-        }
+        return ResultVo.ok(orderService.add(order));
     }
 }

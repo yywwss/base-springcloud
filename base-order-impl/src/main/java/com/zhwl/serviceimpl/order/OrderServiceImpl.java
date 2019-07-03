@@ -36,8 +36,8 @@ public class OrderServiceImpl implements OrderService {
 
         //减少对应库存
         bookServiceFeign.reduceBook(order.getBookId(),order.getCount());
-        if (order.getCount()>10)
-            throw new BaseException("未知错误");
+        /*if (order.getCount()>10)
+            throw new BaseException("未知错误");*/
 
         return 1;
     }
