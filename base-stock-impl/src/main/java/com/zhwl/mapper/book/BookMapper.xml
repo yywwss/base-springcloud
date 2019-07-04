@@ -36,4 +36,14 @@
         id=#{id} and stock - #{count} >= 0
     </update>
 
+    <select id="getByPage" parameterType="Page" resultMap="BaseResultMap">
+        select * from <include refid="tableName"></include>
+        <where>
+            <if test="pd.name != null">AND name=#{pd.name}</if>
+            <if test="pd.price != null">AND price=#{pd.price}</if>
+            <if test="pd.stock != null">AND stock</if>
+            <if test="pd.id != null">AND tsu.id=#{pd.id}</if>
+        </where>
+    </select>
+
 </mapper>

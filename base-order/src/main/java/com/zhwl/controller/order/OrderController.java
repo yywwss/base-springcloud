@@ -1,4 +1,4 @@
-package com.zhwl.controller;
+package com.zhwl.controller.order;
 
 import com.zhwl.bean.Order;
 import com.zhwl.exception.BaseException;

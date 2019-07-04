@@ -1,6 +1,7 @@
 package com.zhwl.service;
 
 import com.zhwl.bean.Book;
+import com.zhwl.plugin.Page;
 import com.zhwl.property.JWTProperties;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,9 @@ public interface BookService {
 
     @RequestMapping(value="getAll",method = RequestMethod.GET)
     List<Book> getAll();
+
+    @GetMapping(value = "getByPage")
+    Page getByPage(Page page);
 
     @RequestMapping(value="getById",method = RequestMethod.GET)
     Book getById(@RequestParam(value = "id") String id);

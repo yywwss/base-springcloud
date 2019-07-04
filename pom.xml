@@ -48,6 +48,7 @@
         <spring-cloud-eureka-server.version>2.1.1.RELEASE</spring-cloud-eureka-server.version>
         <spring-cloud-eureka-client.version>2.1.1.RELEASE</spring-cloud-eureka-client.version>
         <spring-cloud-openfeign.version>2.1.1.RELEASE</spring-cloud-openfeign.version>
+        <feign-httpclient>10.1.0</feign-httpclient>
         <spring-cloud-zuul.version>2.1.1.RELEASE</spring-cloud-zuul.version>
         <codingapi.txlcn.version>5.0.2.RELEASE</codingapi.txlcn.version>
     </properties>
@@ -140,6 +141,13 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
                 <version>${spring-cloud-openfeign.version}</version>
+            </dependency>
+
+            <!--为了解决微服务feign会认为请求是post，但实际上不一定是post-->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-httpclient</artifactId>
+                <version>${feign-httpclient}</version>
             </dependency>
 
             <dependency>

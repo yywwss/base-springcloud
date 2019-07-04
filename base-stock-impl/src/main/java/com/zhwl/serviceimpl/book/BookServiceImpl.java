@@ -3,6 +3,7 @@ package com.zhwl.serviceimpl.book;
 import com.zhwl.bean.Book;
 import com.zhwl.exception.BaseException;
 import com.zhwl.mapper.book.BookMapper;
+import com.zhwl.plugin.Page;
 import com.zhwl.property.JWTProperties;
 import com.zhwl.service.BookService;
 import com.zhwl.txlcn.tc.annotation.LcnTransaction;
@@ -64,6 +65,14 @@ public class BookServiceImpl implements BookService {
         }*/
         return bookMapper.getAll();
     }
+
+
+    @Override
+    public Page getByPage(Page page) {
+        page.setData(bookMapper.getByPage(page));
+        return page;
+    }
+
 
     @Override
     public Book getById(String id) {

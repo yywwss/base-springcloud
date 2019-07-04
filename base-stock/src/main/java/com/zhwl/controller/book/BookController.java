@@ -4,6 +4,7 @@ package com.zhwl.controller.book;
 import com.zhwl.bean.Book;
 import com.zhwl.exception.BaseException;
 import com.zhwl.feign.BookServiceFeign;
+import com.zhwl.plugin.Page;
 import com.zhwl.result.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,12 @@ public class BookController {
     public ResultVo getAll(){
         return ResultVo.ok(bookServiceFeign.getAll());
     }
+
+    @GetMapping("getByPage")
+    public ResultVo getByPage(Page page){
+        return ResultVo.ok(bookServiceFeign.getByPage(page));
+    }
+
 
     @GetMapping("getByName")
     public ResultVo getByName(@RequestParam(value = "name") String name){

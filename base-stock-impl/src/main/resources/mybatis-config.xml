@@ -7,8 +7,15 @@
         <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
     <typeAliases>
+        <typeAlias type="com.zhwl.plugin.Page" alias="Page"/>
         <!-- 别名自动扫描 -->
         <package name="com.zhwl.bean"/>
     </typeAliases>
 
+    <plugins>
+        <plugin interceptor="com.zhwl.plugin.PagePlugin">
+            <property name="dialect" value="mysql"/>
+            <property name="pageSqlId" value=".*ByPage.*"/>
+        </plugin>
+    </plugins>
 </configuration>
