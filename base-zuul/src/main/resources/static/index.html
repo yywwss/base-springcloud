@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+</head>
+<body>
+<form action="/login" method="post">
+    用户名 : <input type="text" name="username"/>
+    密码 : <input type="password" name="password"/>
+    <input type="submit" value="登录">
+</form>
+<br>
+<form action="/loginMobile" method="post">
+    手机号 : <input type="text" name="mobilePhone"/>
+    短信验证码 : <input type="text" name="validateCode"/>
+    <a href="/smsCode/15600000000" target="_blank">获取短信验证码</a>
+    <input type="submit" value="登录">
+</form>
+
+</body>
+</html>

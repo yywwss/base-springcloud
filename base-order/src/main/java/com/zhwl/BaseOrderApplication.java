@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableEurekaClient
 //basePackages 一定要加，不然会启动报错，加的这个是Feign服务客户端包名
-@EnableFeignClients(basePackages = {"com.zhwl.feign"})
+@EnableFeignClients(basePackages = {"com.zhwl.feign","com.zhwl.feign01"})
 public class BaseOrderApplication {
 
     public static void main(String[] args) {

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhwl.mapper.CustomerMapper">
+
+    <!--表名 -->
+    <sql id="tableName">
+        t_customer
+    </sql>
+
+    <sql id="Field">
+        name,
+        phone,
+        telephone,
+        address,
+        username,
+        password,
+        userface,
+        add_time,
+        id
+    </sql>
+
+    <resultMap id="BaseResultMap" type="Customer">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="phone" property="phone"/>
+        <result column="telephone" property="telephone"/>
+        <result column="address" property="address"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="userface" property="userface"/>
+        <result column="add_time" property="addTime"/>
+    </resultMap>
+
+    <!--验证用户名-->
+    <select id="loadUserByUsername" parameterType="String" resultMap="BaseResultMap">
+        select tc.name,tc.phone,tc.telephone,tc.address,tc.username,tc.password,tc.userface,tc.add_time,tc.id
+        from <include refid="tableName"></include> as tc
+        where tc.username = #{username} or tc.phone = #{username}
+    </select>
+
+</mapper>

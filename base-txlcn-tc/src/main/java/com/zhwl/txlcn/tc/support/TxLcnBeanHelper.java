@@ -38,7 +38,7 @@ import org.springframework.stereotype.Component;
 public class TxLcnBeanHelper {
 
     /**
-     * DTXLocalControl bean 名称格式
+     * DTXLocalControl com.zhwl.bean 名称格式
      * control_%s_%s
      * transaction:前缀 %s:事务类型（lcn,tcc,txc） %s:事务状态(starting,running)
      */
@@ -46,7 +46,7 @@ public class TxLcnBeanHelper {
 
 
     /**
-     * message bean 名称格式
+     * message com.zhwl.bean 名称格式
      * rpc_%s_%s
      * message:前缀 %s:事务类型（lcn,tcc,txc） %s:事务业务(commit,rollback)
      */
@@ -54,7 +54,7 @@ public class TxLcnBeanHelper {
 
 
     /**
-     * transaction bean 名称格式
+     * transaction com.zhwl.bean 名称格式
      * transaction_%s_%s
      * transaction:前缀 %s:事务类型（lcn,tcc,txc)
      */

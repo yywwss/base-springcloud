@@ -55,7 +55,7 @@ public class TMSearcher {
     @Autowired
     public TMSearcher(RpcClientInitializer rpcClientInitializer, TxClientConfig clientConfig,
                       ReliableMessenger reliableMessenger, ModIdProvider modIdProvider) {
-        // 1. util class init
+        // 1. com.zhwl.util class init
         Transactions.setApplicationIdWhenRunning(modIdProvider.modId());
 
         // 2. TMSearcher init

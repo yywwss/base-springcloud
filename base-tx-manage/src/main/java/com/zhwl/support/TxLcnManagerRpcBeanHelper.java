@@ -31,7 +31,7 @@ public class TxLcnManagerRpcBeanHelper {
 
 
     /**
-     * manager bean 名称格式
+     * manager com.zhwl.bean 名称格式
      * manager_%s_%s
      * manager:前缀 %s:业务处理(create,add,close)
      */

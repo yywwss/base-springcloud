@@ -30,7 +30,7 @@ public class P6Util {
     }
 
     private P6Util() {
-      // preventing instantiation of the util class
+      // preventing instantiation of the com.zhwl.util class
     }
 
     public static int parseInt(String i, int defaultValue) {

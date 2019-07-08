@@ -1,10 +1,12 @@
 package com.zhwl.serviceimpl.order;
 
 import com.zhwl.bean.Order;
+import com.zhwl.bean.SysUser;
 import com.zhwl.feign.BookServiceFeign;
 import com.zhwl.mapper.order.OrderMapper;
 import com.zhwl.service.OrderService;
 import com.zhwl.txlcn.tc.annotation.LcnTransaction;
+import com.zhwl.util.SysUserUtil;
 import com.zhwl.util.UuidUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("order")
@@ -28,6 +31,11 @@ public class OrderServiceImpl implements OrderService {
     @LcnTransaction
     @Override
     public Integer add(Order order) {
+        SysUser currentUser = SysUserUtil.getCurrentUser();
+        System.out.println("========"+currentUser);
+
+        //SysUserUtil.getCurrentUser();
+
 
         //提交订单
         orderMapper.insert(order.setId(UuidUtil.get32UUID()));

@@ -92,7 +92,6 @@ public class BookServiceImpl implements BookService {
     //@TxcTransaction(propagation = DTXPropagation.SUPPORTS)
     @Override
     public void reduceBook(String bookId, Integer count) {
-
         if(bookMapper.reduceBook(bookId,count) > 0 )
             logger.info("书籍"+bookId+"减少了"+count);
         else{

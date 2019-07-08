@@ -55,7 +55,7 @@ public class ServerRpcAnswer implements RpcAnswer, DisposableBean {
                 Math.max(Runtime.getRuntime().availableProcessors() * 5, managerConfig.getConcurrentLevel()));
         this.rpcClient = rpcClient;
         this.executorService = Executors.newFixedThreadPool(managerConfig.getConcurrentLevel(),
-                new ThreadFactoryBuilder().setDaemon(false).setNameFormat("tm-rpc-service-%d").build());
+                new ThreadFactoryBuilder().setDaemon(false).setNameFormat("tm-rpc-com.zhwl.service-%d").build());
         this.rpcBeanHelper = rpcBeanHelper;
     }
 
@@ -72,7 +72,7 @@ public class ServerRpcAnswer implements RpcAnswer, DisposableBean {
                     Serializable message = rpcExecuteService.execute(transactionCmd);
                     messageDto = MessageCreator.okResponse(message, action);
                 } catch (Throwable e) {
-                    log.error("rpc execute service error. action: " + action, e);
+                    log.error("rpc execute com.zhwl.service error. action: " + action, e);
                     messageDto = MessageCreator.failResponse(e, action);
                 } finally {
                     // 对需要响应信息的请求做出响应

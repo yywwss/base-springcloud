@@ -156,7 +156,7 @@ public class Value {
      * Oracle: Not supported until ojdbc7 which was released with Oracle 12c.
      * https://forums.oracle.com/thread/2584886
      *
-     * MySQL: The method call only works if service side prepared statements are
+     * MySQL: The method call only works if com.zhwl.service side prepared statements are
      * enabled. The URL parameter 'useServerPrepStmts=true' enables.
      */
     if (Number.class.isAssignableFrom(obj.getClass()) || Boolean.class.isAssignableFrom(obj.getClass())) {

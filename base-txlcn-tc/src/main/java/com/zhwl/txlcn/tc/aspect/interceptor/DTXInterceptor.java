@@ -19,7 +19,7 @@ package com.zhwl.txlcn.tc.aspect.interceptor;///*
 //import org.aopalliance.intercept.MethodInvocation;
 //import org.springframework.transaction.interceptor.TransactionInterceptor;
 //
-//import java.util.Properties;
+//import java.com.zhwl.util.Properties;
 //
 ///**
 // * Description:

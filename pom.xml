@@ -12,6 +12,8 @@
         <module>base-stock-impl</module>
         <module>base-order</module>
         <module>base-order-impl</module>
+        <module>base-customer</module>
+        <module>base-customer-impl</module>
         <module>base-tx-manage</module>
         <module>base-txlcn-tc</module>
     </modules>
@@ -136,7 +138,7 @@
                 <version>${spring-cloud-eureka-client.version}</version>
             </dependency>
 
-            <!--spring-cloud feign Feign默认是自带Hystrix的-->
+            <!--spring-cloud feign01 Feign默认是自带Hystrix的-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
