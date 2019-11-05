@@ -53,6 +53,9 @@
         <feign-httpclient>10.1.0</feign-httpclient>
         <spring-cloud-zuul.version>2.1.1.RELEASE</spring-cloud-zuul.version>
         <codingapi.txlcn.version>5.0.2.RELEASE</codingapi.txlcn.version>
+
+
+        <swagger.version>2.9.2</swagger.version>
     </properties>
 
 
@@ -197,6 +200,25 @@
                 <groupId>com.codingapi.txlcn</groupId>
                 <artifactId>txlcn-txmsg-netty</artifactId>
                 <version>${codingapi.txlcn.version}</version>
+            </dependency>
+
+
+            <!-- swagger-->
+           <!-- <dependency>
+                <groupId>com.spring4all</groupId>
+                <artifactId>swagger-spring-boot-starter</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>-->
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
             </dependency>
 
         </dependencies>

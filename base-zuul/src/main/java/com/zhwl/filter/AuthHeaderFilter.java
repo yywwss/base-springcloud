@@ -31,7 +31,8 @@ public class AuthHeaderFilter extends ZuulFilter {
     public Object run() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         RequestContext requestContext = RequestContext.getCurrentContext();
-        requestContext.addZuulRequestHeader("X-AUTH-ID",JSONObject.toJSONString(authentication.getPrincipal()));
+        if (authentication != null && requestContext != null)
+            requestContext.addZuulRequestHeader("X-AUTH-ID",JSONObject.toJSONString(authentication.getPrincipal()));
         return null;
     }
 }

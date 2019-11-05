@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/index.html","/smsCode/**","/static/**",
-                "/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/security",
+                "/**/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/security",
                 "/swagger-ui.html", "/webjars/**");
     }
 
@@ -63,7 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Component("userDetailsServiceImpl")
-    class userDetailsServiceImpl implements UserDetailsService{
+    class UserDetailsServiceImpl implements UserDetailsService{
 
         @Autowired
         private CustomerServiceFeign customerServiceFeign;
